@@ -12,11 +12,11 @@ QSql 命名空间 里的 各种名样的标识符，已经被运用在 Qt SQL �
 
 |||
 |------|:------|
-|enum	|[Location](https://doc.qt.io/qt-5/qsql.html#Location-enum) { BeforeFirstRow, AfterLastRow }|
-|enum	|[NumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsql.html#NumericalPrecisionPolicy-enum) { LowPrecisionInt32, LowPrecisionInt64, LowPrecisionDouble, HighPrecision }|
-|flags	|[ParamType](https://doc.qt.io/qt-5/qsql.html#ParamTypeFlag-enum)|
-|enum|	[ParamTypeFlag](https://doc.qt.io/qt-5/qsql.html#ParamTypeFlag-enum) { In, Out, InOut, Binary }|
-|enum	|[TableType](https://doc.qt.io/qt-5/qsql.html#TableType-enum) { Tables, SystemTables, Views, AllTables }|
+|enum	|[Location](QSql.md#enum-qsqllocation) { BeforeFirstRow, AfterLastRow }|
+|enum	|[NumericalPrecisionPolicy](QSql.md#enum-qsqlnumericalprecisionpolicy) { LowPrecisionInt32, LowPrecisionInt64, LowPrecisionDouble, HighPrecision }|
+|flags	|[ParamType](QSql.md#enum-qsqlparamtypeflag)|
+|enum|	[ParamTypeFlag](QSql.md#flags-qsqlparamtype) { In, Out, InOut, Binary }|
+|enum	|[TableType](QSql.md#enum-qsqltabletype) { Tables, SystemTables, Views, AllTables }|
 
 ## 细节的介绍
 查看 [Qt SQL](https://doc.qt.io/qt-5/qtsql-index.html)
@@ -26,21 +26,24 @@ QSql 命名空间 里的 各种名样的标识符，已经被运用在 Qt SQL �
 ### enum QSql::Location
 
 此枚举类型描述特殊的sql导航位置：
+
 |  常量  | 值| 介绍|
 |------|:------:|:------|
 |QSql::BeforeFirstRow | -1 |在第一个记录之前|
 |QSql::AfterLastRow	|-2|在最后一个记录之后|
+
 **另请参阅** [QSqlQuery::at()](https://doc.qt.io/qt-5/qsqlquery.html#at)
 
 ### enum QSql::NumericalPrecisionPolicy
 
 数据库中的数值可以比它们对应的C++类型更精确。此枚举列出在应用程序中表示此类值的策略。
+
 |  常量  | 值| 介绍|
 |------|:------:|:------|
-|QSql::LowPrecisionInt32|	0x01|对于32位的整形数值。在浮点数的情况下，小数部分将会被舍去。|
-|QSql::LowPrecisionInt64|	0x02|	对于64位的整形数值。在浮点数的情况下，小数部分将会被舍去。|
-|QSql::LowPrecisionDouble| 0x04	|强制双精度值。这个默认的规则|
-|QSql::HighPrecision|	0	|字符串将会维技精度|
+|QSql::LowPrecisionInt32|0x01|对于32位的整形数值。在浮点数的情况下，小数部分将会被舍去。|
+|QSql::LowPrecisionInt64|0x02|	对于64位的整形数值。在浮点数的情况下，小数部分将会被舍去。|
+|QSql::LowPrecisionDouble|0x04	|强制双精度值。这个默认的规则|
+|QSql::HighPrecision|0|字符串将会维技精度|
 
 **注意：** 如果特定的驱动发生溢出，这是一个真实行为。像 `Oracle`数据库在这种情形下，就会返回一个错误。
 
